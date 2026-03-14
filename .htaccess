@@ -1,0 +1,19 @@
+# Security Headers
+Options -Indexes
+ServerSignature Off
+
+# Protect config file
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Protect send-mail.php from direct browser access
+<Files "send-mail.php">
+    Header set X-Content-Type-Options "nosniff"
+</Files>
+
+# Force HTTPS (uncomment after domain is live)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
