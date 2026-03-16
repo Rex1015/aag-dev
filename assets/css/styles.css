@@ -919,7 +919,7 @@ ul { list-style: none; }
   background-size: 900px auto;
   background-position: center 20%;
   background-repeat: no-repeat;
-  opacity: 0.50;
+  opacity: 0.5;
   z-index: -2;
   pointer-events: none;
 }
