@@ -311,7 +311,14 @@ ul { list-style: none; }
     gap: 4px;
   }
   .nav-links.open { display: flex; }
-  .nav-item:hover .dropdown { opacity: 0; pointer-events: none; transform: translateY(6px); }
+
+  /* Disable hover dropdown on mobile */
+  .nav-item:hover > .dropdown { 
+    opacity: 0; 
+    pointer-events: none; 
+  }
+
+  /* Mobile dropdown uses click (JS) */
   .dropdown {
     position: static;
     opacity: 0;
@@ -322,13 +329,56 @@ ul { list-style: none; }
     transition: opacity var(--transition), max-height 300ms ease;
     border-radius: 12px;
     margin-top: 4px;
+    padding-top: 0;
   }
+
+  /* Remove invisible bridge on mobile */
+  .dropdown::before {
+    display: none;
+  }
+
   .nav-item.open .dropdown {
     opacity: 1;
     pointer-events: all;
-    max-height: 300px;
+    max-height: 400px;
   }
   .nav-cta { text-align: center; }
+}
+
+/* ── Desktop dropdown fix ── */
+@media (min-width: 901px) {
+  .nav-item {
+    padding-bottom: 8px;
+    margin-bottom: -8px;
+  }
+
+  .dropdown {
+    top: 100%;
+    padding-top: 14px;
+  }
+
+  .dropdown::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    height: 16px;
+    background: transparent;
+  }
+
+  .nav-item:hover > .dropdown,
+  .nav-item:focus-within > .dropdown {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  /* Keep dropdown open when hovering options */
+  .dropdown:hover {
+    opacity: 1;
+    pointer-events: all;
+  }
 }
 
 /* ============================================================
