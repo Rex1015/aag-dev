@@ -1064,8 +1064,16 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
-.page-with-logo-bg .header,
-.page-with-logo-bg main,
+.page-with-logo-bg .header {
+  position: sticky;
+  z-index: 1000;
+}
+
+.page-with-logo-bg main {
+  position: relative;
+  z-index: 10;
+}
+
 .page-with-logo-bg .footer {
   position: relative;
   z-index: 10;
