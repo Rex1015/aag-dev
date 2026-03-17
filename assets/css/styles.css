@@ -321,36 +321,47 @@ ul { list-style: none; }
     border-radius: 16px;
     padding: 10px;
     gap: 4px;
+    z-index: 9999;
   }
   .nav-links.open { display: flex; }
 
-  /* Disable hover dropdown on mobile */
-  .nav-item:hover > .dropdown { 
-    opacity: 0; 
-    pointer-events: none; 
+  /* Disable hover on mobile */
+  .nav-item:hover > .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 
-  /* Mobile dropdown uses click (JS) */
+  /* Reset nav-item padding on mobile */
+  .nav-item[data-dropdown] {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  /* Mobile dropdown uses click */
   .dropdown {
     position: static;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: none;
     max-height: 0;
     overflow: hidden;
-    transition: opacity var(--transition), max-height 300ms ease;
+    transition: opacity var(--transition), max-height 300ms ease, visibility 300ms ease;
     border-radius: 12px;
     margin-top: 4px;
-    padding-top: 0;
+    padding-top: 8px;
+    z-index: auto;
   }
 
-  /* Remove invisible bridge on mobile */
+  /* Remove bridge on mobile */
   .dropdown::before {
     display: none;
   }
 
   .nav-item.open .dropdown {
     opacity: 1;
+    visibility: visible;
     pointer-events: all;
     max-height: 400px;
   }
