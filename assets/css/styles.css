@@ -221,41 +221,53 @@ ul { list-style: none; }
   transform: translateY(-1px);
 }
 
-/* Dropdown */
+/* ============================================================
+   DROPDOWN — FIXED FOR ALL PAGES
+   ============================================================ */
 .dropdown {
   position: absolute;
   top: 100%;
   left: 0;
   min-width: 260px;
-  background: rgba(10, 12, 18, 0.96);
+  background: rgba(10, 12, 18, 0.98);
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: var(--shadow);
   padding: 8px;
-  padding-top: 14px;
+  padding-top: 16px;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transform: translateY(0);
-  transition: opacity 250ms ease, transform 250ms ease;
+  transition: opacity 300ms ease, visibility 300ms ease;
+  z-index: 9999;
 }
 
-/* Invisible bridge between nav link and dropdown */
+/* Invisible bridge — prevents gap issue */
 .dropdown::before {
   content: '';
   position: absolute;
-  top: -12px;
+  top: -16px;
   left: 0;
   right: 0;
-  height: 14px;
+  height: 18px;
   background: transparent;
 }
 
+/* Show dropdown on hover */
 .nav-item:hover > .dropdown,
 .nav-item:focus-within > .dropdown {
   opacity: 1;
+  visibility: visible;
   pointer-events: all;
-  transform: translateY(0);
 }
+
+/* Keep nav-item hoverable area larger */
+.nav-item[data-dropdown] {
+  padding-bottom: 10px;
+  margin-bottom: -10px;
+}
+
 .dropdown a {
   display: flex;
   align-items: center;
