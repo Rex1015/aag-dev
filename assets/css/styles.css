@@ -1118,7 +1118,7 @@ ul { list-style: none; }
   transform: translateY(-50%);
   width: clamp(280px, 35vw, 450px);
   height: auto;
-  opacity: 0.12;
+  opacity: 1;
   pointer-events: none;
   user-select: none;
   z-index: 0;
@@ -1138,6 +1138,6 @@ ul { list-style: none; }
   .page-hero .hero-logo {
     width: clamp(200px, 50vw, 300px);
     right: -30px;
-    opacity: 0.08;
+    opacity: 1;
   }
 }
