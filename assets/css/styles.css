@@ -1104,7 +1104,7 @@ ul { list-style: none; }
 
 
 /* ============================================================
-   VISIBLE LOGO IN HERO — RIGHT SIDE
+   VISIBLE LOGO IN HERO — RIGHT SIDE (FULLY VISIBLE)
    ============================================================ */
 .page-hero {
   position: relative;
@@ -1113,31 +1113,63 @@ ul { list-style: none; }
 
 .page-hero .hero-logo {
   position: absolute;
-  right: -40px;
+  right: 40px;
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(280px, 35vw, 450px);
+  width: clamp(250px, 30vw, 400px);
   height: auto;
-  opacity: 1;
+  opacity: 0.85;
   pointer-events: none;
   user-select: none;
   z-index: 0;
   filter: 
-    drop-shadow(0 0 40px rgba(255,255,255,0.15))
-    drop-shadow(0 0 80px rgba(255,255,255,0.05));
+    drop-shadow(0 0 30px rgba(255,255,255,0.30))
+    drop-shadow(0 0 60px rgba(255,255,255,0.10));
 }
 
-/* Keep text above logo */
 .page-hero .container {
   position: relative;
   z-index: 2;
 }
 
+/* ── Home Page Hero Logo ── */
+.hero .hero-logo {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(280px, 32vw, 450px);
+  height: auto;
+  opacity: 0.90;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  filter: 
+    drop-shadow(0 0 40px rgba(255,255,255,0.35))
+    drop-shadow(0 0 80px rgba(255,255,255,0.15));
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .page-hero .hero-logo,
+  .hero .hero-logo {
+    width: clamp(180px, 28vw, 280px);
+    right: 20px;
+    opacity: 0.70;
+  }
+}
+
 /* Mobile */
 @media (max-width: 768px) {
-  .page-hero .hero-logo {
-    width: clamp(200px, 50vw, 300px);
-    right: -30px;
-    opacity: 1;
+  .page-hero .hero-logo,
+  .hero .hero-logo {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: clamp(150px, 45vw, 220px);
+    margin: 0 auto 20px;
+    opacity: 0.85;
+    display: block;
   }
 }
