@@ -1101,3 +1101,43 @@ ul { list-style: none; }
   position: relative;
   z-index: 10;
 }
+
+
+/* ============================================================
+   VISIBLE LOGO IN HERO — LEFT SIDE
+   ============================================================ */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero .hero-logo {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(280px, 35vw, 450px);
+  height: auto;
+  opacity: 0.12;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  filter: 
+    drop-shadow(0 0 40px rgba(255,255,255,0.15))
+    drop-shadow(0 0 80px rgba(255,255,255,0.05));
+}
+
+/* Keep text above logo */
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .page-hero .hero-logo {
+    width: clamp(200px, 50vw, 300px);
+    left: -30px;
+    opacity: 0.08;
+  }
+}
