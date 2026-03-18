@@ -1104,7 +1104,7 @@ ul { list-style: none; }
 
 
 /* ============================================================
-   VISIBLE LOGO IN HERO — LEFT SIDE
+   VISIBLE LOGO IN HERO — RIGHT SIDE
    ============================================================ */
 .page-hero {
   position: relative;
@@ -1113,7 +1113,7 @@ ul { list-style: none; }
 
 .page-hero .hero-logo {
   position: absolute;
-  left: -40px;
+  right: -40px;
   top: 50%;
   transform: translateY(-50%);
   width: clamp(280px, 35vw, 450px);
@@ -1137,7 +1137,7 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .page-hero .hero-logo {
     width: clamp(200px, 50vw, 300px);
-    left: -30px;
+    right: -30px;
     opacity: 0.08;
   }
 }
