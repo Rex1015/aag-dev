@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    AERO ASSIST GLOBAL — Global Stylesheet
    Theme: Black + Silver | Modern | Responsive
    ============================================================ */
@@ -1070,57 +1070,174 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   MOBILE IMPROVEMENTS — Comprehensive Responsive Overrides
+   TOUCH DEVICE OPTIMIZATIONS
    ============================================================ */
 
-/* ── Tablet (≤ 900px) ── */
+/* Remove grayscale on touch devices — no hover on mobile */
+@media (hover: none) {
+  .service-card {
+    filter: grayscale(0%);
+  }
+  .service-overlay {
+    opacity: 0.80;
+  }
+  .service-card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  .card:active {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ============================================================
+   TABLET (max-width: 900px)
+   ============================================================ */
 @media (max-width: 900px) {
   .container { width: calc(100% - 28px); }
-
   .section { padding: 48px 0; }
-
   .page-hero { padding: 40px 0 28px; }
-
   .hero-content { padding: 52px 0 60px; }
-
   .brand img { height: 42px; }
   .brand-text .name { font-size: 15px; }
   .brand-text .tag { display: none; }
-
   .page-hero .hero-logo,
   .hero .hero-logo {
     width: clamp(180px, 28vw, 280px);
     right: 20px;
     opacity: 0.70;
   }
-
   .footer-inner {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
-
   .divider { margin: 32px 0; }
 }
 
-/* ── Mobile (≤ 600px) ── */
+/* ============================================================
+   MOBILE (max-width: 600px)
+   ============================================================ */
 @media (max-width: 600px) {
   .container { width: calc(100% - 24px); }
-
   .section { padding: 36px 0; }
 
-  .page-hero { padding: 32px 0 24px; }
-
+  /* Page Hero */
+  .page-hero { padding: 36px 0 28px; }
+  .page-hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(7, 8, 11, 0.78) 0%,
+      rgba(7, 8, 11, 0.62) 40%,
+      rgba(7, 8, 11, 0.94) 100%
+    );
+  }
+  .page-hero .hero-logo,
+  .hero .hero-logo { display: none; }
   .hero-content { padding: 40px 0 48px; }
 
+  /* Typography */
   .page-title { font-size: clamp(24px, 7vw, 36px); }
-
-  .page-lead { font-size: 14px; }
-
+  .page-lead { font-size: 14px; line-height: 1.6; }
   .section-title { font-size: clamp(18px, 5vw, 24px); }
-
   .section-sub { font-size: 14px; margin-bottom: 24px; }
+  .hero-title { font-size: clamp(28px, 8vw, 42px); }
+  .hero-lead { font-size: 14px; }
 
-  /* Stack action buttons vertically */
+  /* Service Cards — Best Mobile Layout */
+  .services-grid { gap: 16px; }
+
+  .service-card {
+    height: auto;
+    min-height: 300px;
+    border-radius: 20px;
+    filter: grayscale(0%);
+  }
+
+  /* Bottom-aligned content — image shows at top */
+  .service-card-content {
+    padding: 0;
+    justify-content: flex-end;
+  }
+
+  /* Gradient from bottom — image visible at top */
+  .service-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(7, 8, 11, 0.97) 0%,
+      rgba(7, 8, 11, 0.78) 45%,
+      rgba(7, 8, 11, 0.22) 100%
+    );
+    opacity: 1;
+  }
+
+  .service-card-icon {
+    font-size: 30px;
+    padding: 20px 20px 0;
+    margin-bottom: 4px;
+  }
+  .service-card-content h2 {
+    font-size: 19px;
+    margin: 6px 0 8px;
+    padding: 0 20px;
+  }
+  .service-card-content p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.68);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 0 20px;
+    flex-grow: 0;
+  }
+  .service-card-content .badge-row {
+    padding: 0 20px;
+    margin-top: 10px;
+    gap: 5px;
+  }
+  .service-card-content .badge-row .badge:nth-child(n+3) {
+    display: none;
+  }
+  .service-card-content .badge {
+    font-size: 10px;
+    padding: 4px 9px;
+  }
+  .service-card-arrow {
+    padding: 14px 20px 20px;
+    margin-top: 10px;
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.09);
+  }
+
+  /* Navigation — better touch targets */
+  .nav-link, .nav-cta {
+    padding: 12px 14px;
+    font-size: 15px;
+    min-height: 44px;
+  }
+  .dropdown a {
+    padding: 13px 14px;
+    min-height: 44px;
+  }
+  .menu-btn {
+    padding: 10px 13px;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Badges */
+  .badge-row { gap: 6px; margin-top: 12px; }
+  .badge { font-size: 11px; padding: 5px 10px; }
+
+  /* Panels & Cards */
+  .panel { padding: 18px 16px; }
+  .card { padding: 18px 16px; }
+
+  /* Buttons — stack vertically */
   .actions {
     flex-direction: column;
     align-items: stretch;
@@ -1129,77 +1246,85 @@ ul { list-style: none; }
     width: 100%;
     justify-content: center;
     text-align: center;
+    min-height: 48px;
+    font-size: 15px;
   }
 
-  /* Service cards — shorter on mobile */
-  .service-card { height: 360px; }
-  .service-card-content { padding: 24px 20px; }
-  .service-card-icon { font-size: 32px; }
-  .service-card-content h2 { font-size: 18px; }
-  .service-card-content .badge { font-size: 10px; padding: 4px 8px; }
-
-  /* Badge row wraps tighter */
-  .badge-row { gap: 6px; margin-top: 12px; }
-  .badge { font-size: 11px; padding: 5px 10px; }
-
-  /* Panel padding */
-  .panel { padding: 18px 16px; }
-
-  /* Card padding */
-  .card { padding: 18px 16px; }
-
-  /* Footer stacks to single column */
+  /* Footer */
   .footer-inner {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  .footer {
-    padding: 28px 0;
-  }
+  .footer { padding: 28px 0; }
   .footer > .container > div:last-child {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
 
-  /* Breadcrumbs smaller */
+  /* Misc */
   .breadcrumbs { font-size: 12px; }
-
-  /* Hero logo hidden on very small screens — avoid overlap */
-  .page-hero .hero-logo,
-  .hero .hero-logo {
-    display: none;
-  }
-
-  /* Divider margin */
   .divider { margin: 24px 0; }
 
-  /* CTA panel padding */
-  .panel[style*="padding:48px"] {
-    padding: 32px 20px !important;
+  /* Logo background smaller on mobile */
+  .page-with-logo-bg::before {
+    background-size: 360px auto;
+    opacity: 0.22;
+  }
+
+  /* CTA panel */
+  .panel[style*="padding:48px"],
+  .panel[style*="padding: 48px"] {
+    padding: 28px 18px !important;
   }
 }
 
-/* ── Small Mobile (≤ 480px) ── */
+/* ============================================================
+   SMALL MOBILE (max-width: 480px)
+   ============================================================ */
 @media (max-width: 480px) {
   .container { width: calc(100% - 20px); }
+  .section { padding: 24px 0; }
+  .nav { padding: 8px 0; }
+  .brand img { height: 36px; }
+  .brand-text .name { font-size: 14px; }
 
-  .section { padding: 28px 0; }
+  .service-card { min-height: 260px; border-radius: 16px; }
+  .service-card-icon { font-size: 26px; padding: 16px 16px 0; }
+  .service-card-content h2 { font-size: 17px; padding: 0 16px; }
+  .service-card-content p {
+    -webkit-line-clamp: 2;
+    font-size: 12px;
+    padding: 0 16px;
+  }
+  .service-card-content .badge-row { padding: 0 16px; }
+  .service-card-arrow { padding: 12px 16px 16px; font-size: 12px; }
 
-  .service-card { height: 320px; }
-  .service-card-content { padding: 20px 16px; }
-
-  .hero-title { font-size: clamp(28px, 8vw, 40px); }
-
-  .nav { padding: 10px 0; }
-
-  .brand img { height: 38px; }
-
+  .hero-title { font-size: clamp(26px, 8vw, 38px); }
   .btn { padding: 11px 16px; font-size: 13px; }
-
   .check-list li { font-size: 13px; }
-
   .panel h3, .card h3 { font-size: 15px; }
+  .services-grid { gap: 14px; }
+  .divider { margin: 18px 0; }
+}
 
-  .services-grid { gap: 16px; }
+/* ============================================================
+   SAFE AREA INSETS (notched / punch-hole phones)
+   ============================================================ */
+@supports (padding: max(0px)) {
+  .footer {
+    padding-bottom: max(28px, calc(16px + env(safe-area-inset-bottom)));
+  }
+  .nav-links {
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; }
 }
