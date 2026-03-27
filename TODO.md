@@ -1,19 +1,12 @@
-# AAG Website Fix — Task Checklist
+# TODO - CAAP Liaison + VIP Ground Handling Updates
 
-## services.html
-- [x] Fix broken VIP Transportation card (added missing `<a>` wrapper, service-overlay, service-card-content)
-- [x] Add Concierge / VIP Security as full service card → concierge-vip-security.html
-- [x] Add Inflight Catering as full service card → inflight-catering.html
-- [x] Result: 6 cards total in services-grid (3×2 desktop, 2×3 tablet, 1 col mobile)
-
-## assets/css/styles.css
-- [x] Remove duplicate `services-grid` definition
-- [x] Remove duplicate `service-card` definition
-- [x] Fix `grid-3`: 3 cols desktop → 2 cols ≤900px → 1 col ≤600px
-- [x] Add comprehensive mobile improvements (padding, font sizes, card heights, footer, buttons)
-- [x] services-grid: 3 cols desktop → 2 cols ≤1024px → 1 col ≤600px
-
-## Verification
-- [ ] Open services.html in browser and verify 6 cards display correctly
-- [ ] Test mobile view at 375px, 480px, 768px
-- [ ] Confirm "Also Available" section is untouched
+- [ ] Add CAAP Liaison service card to `services.html` (Choose a Service section)
+- [ ] Update services dropdown in `services.html` to include CAAP Liaison
+- [ ] Create new page `caap-liaison.html` with full service layout and content
+- [ ] Remove De-icing Services card from `ground-handling.html`
+- [ ] Rebalance VIP Ground Handling capability cards/content after de-icing removal
+- [ ] Add CAAP Liaison links in footer quick links where appropriate
+- [ ] Ensure services grid/card layout remains clean for updated service count
+- [ ] Run quick content verification checks
+- [ ] Commit changes on `blackboxai/caap-liaison-and-vip-ground-update`
+- [ ] Push branch to origin
