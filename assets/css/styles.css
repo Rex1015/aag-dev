@@ -316,7 +316,7 @@ ul { list-style: none; }
     opacity: 1;
     visibility: visible;
     pointer-events: all;
-    max-height: 500px;
+    max-height: 800px;
   }
   .nav-cta { text-align: center; }
 }
